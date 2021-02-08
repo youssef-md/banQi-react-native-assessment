@@ -20,6 +20,7 @@ export const Button = styled.TouchableOpacity.attrs({
 export const Text = styled.Text`
   font-size: 16px;
   margin-right: 4px;
+  font-family: 'Montserrat_500Medium';
 `;
 
 export const BankIcon = styled(MaterialIcons).attrs({
