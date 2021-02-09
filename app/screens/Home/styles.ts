@@ -23,12 +23,12 @@ export const Button = styled.TouchableOpacity.attrs({
 
 export const Text = styled(Strong)`
   margin-left: 6px;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.textOnAccent};
 `;
 
 export const BankIcon = styled(MaterialIcons).attrs({
   name: 'account-balance',
   size: 20,
 })`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.textOnAccent};
 `;
