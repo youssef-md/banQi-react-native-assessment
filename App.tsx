@@ -4,6 +4,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar, Text } from 'react-native';
 
+import AppProvider from './app/hooks';
 import Routes from './app/routes';
 import {
   useFonts,
@@ -17,12 +18,16 @@ export default function App() {
     Montserrat_700Bold,
   });
 
-  if (!fontsLoaded) return <Text>Carregando...</Text>;
+  if (!fontsLoaded) {
+    return <Text>Carregando...</Text>;
+  }
 
   return (
     <NavigationContainer>
-      <StatusBar />
-      <Routes />
+      <AppProvider>
+        <StatusBar />
+        <Routes />
+      </AppProvider>
     </NavigationContainer>
   );
 }
