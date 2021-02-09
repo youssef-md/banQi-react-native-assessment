@@ -1,24 +1,17 @@
-import {
-  white,
-  white_600,
-  white_50,
-  black,
-  black_400,
-  pink,
-  pink_dark,
-  pink_50,
-} from '../colors';
+import { lighten } from 'polished';
+
+import { white, black, pink, pink_dark } from '../colors';
 
 export default {
   type: 'light',
   colors: {
     primary: white,
-    primaryLighter: white_600,
-    primaryDetail: white_50,
+    primaryDetail: lighten(0.8, white),
     secondary: black,
-    secondaryLighter: black_400,
+    secondaryLighter: lighten(0.6, black),
     accent: pink,
     accentDarker: pink_dark,
-    accentDetail: pink_50,
+    accentDetail: lighten(0.8, pink),
+    textOnAccent: white,
   },
 };

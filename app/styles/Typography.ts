@@ -5,11 +5,6 @@ export const H1 = styled.Text`
   font-size: 28px;
 `;
 
-export const H2 = styled.Text`
-  font-family: 'Montserrat_700Bold';
-  font-size: 18px;
-`;
-
 export const Strong = styled.Text`
   font-family: 'Montserrat_700Bold';
   font-size: 18px;

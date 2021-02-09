@@ -5,13 +5,12 @@ declare module 'styled-components' {
     type: string;
     colors: {
       primary: string;
-      primaryLighter: string;
       primaryDetail: string;
       secondary: string;
-      secondaryLighter: string;
       accent: string;
       accentDarker: string;
       accentDetail: string;
+      textOnAccent: string;
     };
   }
 }
