@@ -22,18 +22,18 @@ interface props {
 const AccountHero: React.FC<props> = ({ balance }) => {
   const [seeBalance, setSeeBalance] = useState(false);
 
-  const animationController = useRef(new Animated.Value(0)).current;
+  const balanceController = useRef(new Animated.Value(0)).current;
 
   const toggleSeeBalance = useCallback(() => {
-    Animated.timing(animationController, {
+    Animated.timing(balanceController, {
       duration: 500,
       easing: Easing.bezier(0.4, 0.0, 0.2, 1),
       toValue: seeBalance ? 0 : 1,
     }).start();
     setSeeBalance(!seeBalance);
-  }, [seeBalance, animationController]);
+  }, [seeBalance, balanceController]);
 
-  const coverOpacity = animationController.interpolate({
+  const coverOpacity = balanceController.interpolate({
     inputRange: [0, 1],
     outputRange: [0, 150],
   });
