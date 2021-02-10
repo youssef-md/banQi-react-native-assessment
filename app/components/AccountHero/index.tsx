@@ -13,6 +13,7 @@ import {
 } from './styles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Animated, { Easing } from 'react-native-reanimated';
+import { formatBRL } from '../../utils/methods';
 
 interface props {
   balance: string;
@@ -25,17 +26,16 @@ const AccountHero: React.FC<props> = ({ balance }) => {
 
   const toggleSeeBalance = useCallback(() => {
     Animated.timing(animationController, {
-      duration: 300,
+      duration: 500,
       easing: Easing.bezier(0.4, 0.0, 0.2, 1),
       toValue: seeBalance ? 0 : 1,
     }).start();
-
     setSeeBalance(!seeBalance);
   }, [seeBalance, animationController]);
 
   const coverOpacity = animationController.interpolate({
     inputRange: [0, 1],
-    outputRange: [0, 100],
+    outputRange: [0, 150],
   });
 
   return (
@@ -48,7 +48,7 @@ const AccountHero: React.FC<props> = ({ balance }) => {
               as={Animated.View}
               style={{ transform: [{ translateX: coverOpacity }] }}
             />
-            <BalanceText>{balance}</BalanceText>
+            <BalanceText>{formatBRL(balance)}</BalanceText>
           </Balance>
           <TouchableOpacity activeOpacity={0.6} onPress={toggleSeeBalance}>
             <EyeIcon canSee={seeBalance} />
