@@ -1,12 +1,14 @@
 import styled from 'styled-components/native';
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
-import { Paragraph, Strong } from '../../styles/Typography';
+import { Paragraph, Strong, Small } from '../../styles/Typography';
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.8,
+})`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 12px 0;
+  padding: 12px 20px;
   margin: 1px 0;
 `;
 
@@ -51,6 +53,11 @@ export const Description = styled(Paragraph)`
 
 export const Amount = styled(Strong)`
   color: ${({ theme }) => theme.colors.secondary};
+  margin-bottom: 6px;
+`;
+
+export const Date = styled(Small)`
+  color: ${({ theme }) => theme.colors.secondary};
 `;
 
 export const Arrow = styled(MaterialIcons).attrs({
@@ -58,4 +65,15 @@ export const Arrow = styled(MaterialIcons).attrs({
   size: 35,
 })`
   color: ${({ theme }) => theme.colors.accent};
+`;
+
+export const ActiveBackground = styled.View`
+  position: absolute;
+  right: 6px;
+  left: 6px;
+  bottom: 0;
+  top: 0;
+  z-index: -1;
+  background-color: ${({ theme }) => theme.colors.accentDetail};
+  border-radius: 16px;
 `;

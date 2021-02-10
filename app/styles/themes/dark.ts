@@ -1,4 +1,4 @@
-import { darken, opacify } from 'polished';
+import { darken, opacify, transparentize } from 'polished';
 
 import { white, black, pink, pink_dark } from '../colors';
 
@@ -12,7 +12,7 @@ export default {
     secondaryDetail: darken(0.8, white),
     accent: darken(0.15, pink),
     accentDarker: darken(0.1, pink_dark),
-    accentDetail: opacify(0.8, pink),
+    accentDetail: transparentize(0.94, pink),
     textOnAccent: white,
   },
 };
