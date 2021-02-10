@@ -21,9 +21,15 @@ interface props {
   date: string;
   description: string;
   amount: string;
+  isLast: boolean;
 }
 
-const Transaction: React.FC<props> = ({ amount, description, date }) => {
+const Transaction: React.FC<props> = ({
+  amount,
+  description,
+  date,
+  isLast,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openController = useRef(new Animated.Value(0)).current;
@@ -31,7 +37,7 @@ const Transaction: React.FC<props> = ({ amount, description, date }) => {
   const toggleIsOpen = useCallback(() => {
     setIsOpen(!isOpen);
     Animated.timing(openController, {
-      duration: 500,
+      duration: 300,
       easing: Easing.bezier(0.4, 0.0, 0.2, 1),
       toValue: isOpen ? 0 : 1,
     }).start();
@@ -44,7 +50,7 @@ const Transaction: React.FC<props> = ({ amount, description, date }) => {
 
   const height = openController.interpolate({
     inputRange: [0, 1],
-    outputRange: [70, 100],
+    outputRange: [85, 110],
   });
 
   return (
@@ -52,7 +58,7 @@ const Transaction: React.FC<props> = ({ amount, description, date }) => {
       <Container as={Animated.View} style={{ height }}>
         <IconCol>
           {amount.includes('-') ? <MoneyOut /> : <MoneyIn />}
-          <Line />
+          {!isLast && <Line />}
         </IconCol>
 
         <TransactionCol as={Animated.View}>

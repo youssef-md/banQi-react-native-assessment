@@ -35,7 +35,7 @@ const AccountHero: React.FC<props> = ({ balance }) => {
 
   const coverOpacity = balanceController.interpolate({
     inputRange: [0, 1],
-    outputRange: [0, 150],
+    outputRange: [-150, 0],
   });
 
   return (
